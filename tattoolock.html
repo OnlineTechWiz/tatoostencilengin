@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LoudCloud Supply | Stencil Engine</title>
+  <style>
+    /* Add existing styles here... */
+    :root { --bg-color: #0f111a; --accent-purple: #9d4edd; }
+    body { margin: 0; background-color: var(--bg-color); font-family: sans-serif; color: white; }
+    
+    /* Gatekeeper Overlay */
+    #gate-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #0f111a; z-index: 9999;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+    }
+    .gate-box { background: #1a1a1e; padding: 40px; border-radius: 15px; text-align: center; border: 1px solid #333; }
+    input { padding: 12px; width: 250px; border-radius: 5px; border: none; margin: 10px 0; }
+    button { padding: 12px 25px; background: var(--accent-purple); color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div id="gate-overlay">
+    <div class="gate-box">
+      <h2>LOUDCLOUD SYSTEM ACCESS</h2>
+      <p>Enter your access key to deploy the stencil engine.</p>
+      <input type="password" id="access-key" placeholder="Enter Key...">
+      <br>
+      <button onclick="checkAccess()">UNLOCK ENGINE</button>
+      <p id="msg" style="color:red; font-size: 0.8rem;"></p>
+    </div>
+  </div>
+
+  <div class="engine-container">
+    </div>
+
+  <script>
+    function checkAccess() {
+      const key = document.getElementById('access-key').value;
+      // You can change this key to whatever you want
+      if (key === "LOUDCLOUD2026") {
+        document.getElementById('gate-overlay').style.display = 'none';
+      } else {
+        document.getElementById('msg').innerText = "Invalid Access Key. Contact support.";
+      }
+    }
+  </script>
+</body>
+</html>
